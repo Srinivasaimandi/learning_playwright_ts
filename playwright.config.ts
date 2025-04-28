@@ -35,15 +35,18 @@ export default defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
+    /* Base URL to use in actions like `await page.goto('/')`. 
+       other urls which can be to be automated
+        - https://todolist.james.am/#/
+    */
     baseURL: "https://www.saucedemo.com",
-    /*
-    other urls which can be to be automated
-    - https://todolist.james.am/#/
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    colorScheme: "dark",
+    locale: "en-IN",
+    timezoneId: "Asia/Calcutta",
     screenshot: "only-on-failure",
-    video: "retain-on-failure",
+    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    trace: "on",
+    video: "on",
   },
 
   /* Configure projects for major browsers */
