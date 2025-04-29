@@ -3,6 +3,7 @@ import { BasePage } from "./BasePage.pageobject";
 
 /**
  * @author: srinivasaimandi
+ * @description: contains the locators and functions of cart page
  */
 export class CartPage extends BasePage {
   private cartItem: Locator;
