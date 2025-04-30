@@ -78,7 +78,7 @@ let invalidScenarios = {
 
 test.describe("negative scenarios", async function(){
   test.skip(({browserName}) => 
-   browserName === "firefox"
+   browserName === "chromium"
   );
   Array.from(Object.keys(invalidScenarios)).forEach((scenario) => {
     test(

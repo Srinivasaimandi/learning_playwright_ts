@@ -69,7 +69,7 @@ export default defineConfig({
       name: "firefox",
       use: { ...devices["Desktop Firefox"] },
       testIgnore: [
-        "/tests/tutorials/*.spec.ts",
+        // "/tests/tutorials/*.spec.ts",
         "/tests/tests-examples/*.spec.ts",
         "./tests/readinfFilesTest.spec.ts",
       ],
@@ -108,8 +108,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   // webServer: {
-  //   command: 'docker container start the-internet',
-  //   url: 'http://localhost:7070',
-  //   reuseExistingServer: !process.env.CI,
+    // command: 'docker container start the-internet',
+    // url: 'http://localhost:7070',
+    // timeout: 120 * 1000,
+    // reuseExistingServer: !process.env.CI,
   // },
 });
