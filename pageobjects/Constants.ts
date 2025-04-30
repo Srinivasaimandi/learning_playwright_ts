@@ -13,6 +13,18 @@ export const TIMEOUT: number = 5000;
 
 export const BASE_URL: string = "https://www.saucedemo.com";
 
+export const api_credentials = {
+  /**
+   * Use it as the 'x-api-key' header when making any request to the API, 
+   * or by adding as a query string parameter 
+   * e.g. 'api_key=live_RZPyVEv0nGUdmKYxu3WAOzz9bnymqeGukgS8hUqTx4ArYH6tdugzOgdoGGbBPdR8'
+   */
+  "api_key": "live_RZPyVEv0nGUdmKYxu3WAOzz9bnymqeGukgS8hUqTx4ArYH6tdugzOgdoGGbBPdR8"
+
+  // official api_key for testing purposes only
+  //live_RR2tPPa0CVF27GUBloAFI2oAZJNuHif9tPEDdMZP1bi6ovAFWGyJb3GtuAq8rVPk
+}
+
 // headings of all pages
 export const HEADING: Record<string, string> = {
   products: "Products",

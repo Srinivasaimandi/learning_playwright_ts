@@ -7,6 +7,7 @@ export class ActionsPage {
   constructor(page: Page) {
     this.page = page;
     this.baseUrl = "https://the-internet.herokuapp.com/";
+    // this.baseUrl = "http://localhost:7070";
   }
 
   async load() {

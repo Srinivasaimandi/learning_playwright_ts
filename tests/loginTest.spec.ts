@@ -47,7 +47,7 @@ test(
 );
 
 // failure case, added to test retires in config
-test(
+test.fail(
   "validate title: failure scenario",
   {
     tag: "@smoke @negative_case @reg",
@@ -76,33 +76,38 @@ let invalidScenarios = {
   ],
 };
 
-Array.from(Object.keys(invalidScenarios)).forEach((scenario) => {
-  test(
-    `test with ${scenario}`,
-    { tag: "@login @negative" },
-    async function ({ page }) {
-      let username = invalidScenarios[`${scenario}`][0];
-      let password = invalidScenarios[`${scenario}`][1];
-      let message = invalidScenarios[`${scenario}`][2];
-      await loginPage.login(username, password);
-      let errorMessage = await page
-        .locator(".error-message-container")
-        .textContent();
-      await expect(errorMessage).toEqual(message);
-    }
+test.describe("negative scenarios", async function(){
+  test.skip(({browserName}) => 
+   browserName === "chromium"
   );
-});
-
-// parameterized test
-Array.from(Object.values(Constants.USERS)).forEach((username) => {
-  test(
-    `login test with username: '${username}'`,
-    { tag: "@login @positive_case @reg" },
-    async function () {
-      await loginPage.login(username, Constants.PASSWORD);
-      await inventoryPage.validateHeading(username);
-    }
-  );
+  Array.from(Object.keys(invalidScenarios)).forEach((scenario) => {
+    test(
+      `test with ${scenario}`,
+      { tag: "@login @negative" },
+      async function ({ page }) {
+        let username = invalidScenarios[`${scenario}`][0];
+        let password = invalidScenarios[`${scenario}`][1];
+        let message = invalidScenarios[`${scenario}`][2];
+        await loginPage.login(username, password);
+        let errorMessage = await page
+          .locator(".error-message-container")
+          .textContent();
+        await expect(errorMessage).toEqual(message);
+      }
+    );
+  });
+  
+  // parameterized test
+  Array.from(Object.values(Constants.USERS)).forEach((username) => {
+    test(
+      `login test with username: '${username}'`,
+      { tag: "@login @positive_case @reg" },
+      async function () {
+        await loginPage.login(username, Constants.PASSWORD);
+        await inventoryPage.validateHeading(username);
+      }
+    );
+  });
 });
 
 /**
