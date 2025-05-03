@@ -4,7 +4,7 @@ import {
   ActionsPage,
   UploadDownloadFiles,
   MenuOptions,
-} from "../../pageobjects/tutorials/ActionsPage.pageobject";
+} from "../../../pageobjects/tutorials/ActionsPage.pageobject";
 // import { MenuOptions } from "../../pageobjects/tutorials/ActionsPage.pageobject";
 /**
  * @author: srinivasaimandi
@@ -151,10 +151,21 @@ test.skip(
   }
 );
 
-test.skip("fetch all menu items text", async function ({ page }) {
+test.skip("fetch all menu items text", {tag: "@actions"}, async function ({ page }) {
   page.waitForTimeout(4000);
   let items = await page.locator("li > a").all();
   for (const item of items) {
     console.log(item.textContent());
   }
+});
+
+test("multiple windows", { tag: "@actions" }, async function ({ page }) { 
+  await actionsPage.navigateToScreen(MenuOptions.multiple_windows);
+  const [newPage] = await Promise.all([
+    page.waitForEvent("popup"),
+    page.locator("div.example > a").click(),
+  ]);
+  await newPage.waitForTimeout(2000);
+  await expect(newPage).toHaveURL(actionsPage.baseUrl+'/windows/new');
+  await newPage.close();
 });
