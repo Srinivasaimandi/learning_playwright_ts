@@ -56,34 +56,40 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
-      testIgnore: [
-        "/tests/tutorials/*.spec.ts",
-        "/tests/tests-examples/*.spec.ts",
-        "./tests/readinfFilesTest.spec.ts",
-      ],
+      name: "tutorial",
+      testDir: "./tests/tutorials/",
+      use: { ...devices["firefox"] }
     },
+  
+    // {
+    //   name: "chromium",
+    //   use: { ...devices["Desktop Chrome"] },
+    //   testIgnore: [
+    //     "/tests/tutorials/*.spec.ts",
+    //     "/tests/tests-examples/*.spec.ts",
+    //     "./tests/readinfFilesTest.spec.ts",
+    //   ],
+    // },
 
     {
       name: "firefox",
       use: { ...devices["Desktop Firefox"] },
       testIgnore: [
-        // "/tests/tutorials/*.spec.ts",
-        "/tests/tests-examples/*.spec.ts",
-        "./tests/readinfFilesTest.spec.ts",
+        "/tests/ui-test/tutorials/*.spec.ts",
+        "/tests/ui-test/tests-examples/*.spec.ts",
+        "./tests/ui-test/readinfFilesTest.spec.ts",
       ],
     },
 
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
-      testIgnore: [
-        "/tests/tutorials/*.spec.ts",
-        "/tests/tests-examples/*.spec.ts",
-        "./tests/readinfFilesTest.spec.ts",
-      ],
-    },
+    // {
+    //   name: "webkit",
+    //   use: { ...devices["Desktop Safari"] },
+    //   testIgnore: [
+    //     "/tests/tutorials/*.spec.ts",
+    //     "/tests/tests-examples/*.spec.ts",
+    //     "./tests/readinfFilesTest.spec.ts",
+    //   ],
+    // },
 
     /* Test against mobile viewports. */
     // {

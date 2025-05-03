@@ -49,6 +49,7 @@ export let MenuOptions = {
   file_upload: "File Upload",
   floating_menu: "Floating Menu",
   forgot_password: "Forgot Password",
+  multiple_windows: "Multiple Windows",
 };
 
 export let UploadDownloadFiles = {

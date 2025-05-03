@@ -2,7 +2,7 @@ import fs from "fs";
 import * as path from "path";
 import excelJs from "exceljs";
 
-import { UploadDownloadFiles } from "../pageobjects/tutorials/ActionsPage.pageobject";
+import { UploadDownloadFiles } from "../../pageobjects/tutorials/ActionsPage.pageobject";
 
 let filePath = path.join(process.cwd(), "resources/test_files/");
 

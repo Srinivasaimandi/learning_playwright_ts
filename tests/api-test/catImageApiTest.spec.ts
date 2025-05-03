@@ -166,8 +166,6 @@ test.describe("cat api dependent tests", async function () {
         "pw_upload_image.jpg"
       );
 
-      let imageData = fs.readFileSync(imagePath);
-
       let uploadImageOptions = OPTIONS;
       uploadImageOptions.extraHTTPHeaders["Content-Type"] =
         "multipart/form-data";
@@ -177,7 +175,7 @@ test.describe("cat api dependent tests", async function () {
           file: {
             name: imagePath,
             mimeType: "image/jpg",
-            buffer: imageData,
+            buffer: fs.readFileSync(imagePath),
           },
         },
       });

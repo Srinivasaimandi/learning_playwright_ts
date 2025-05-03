@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
-import * as Constants from "../../pageobjects/Constants";
-import { LoginPage } from "../../pageobjects/LoginPage.pageobject";
-import { InventoryPage } from "../../pageobjects/InventoryPage.pageobject";
+import * as Constants from "../../../pageobjects/Constants";
+import { LoginPage } from "../../../pageobjects/LoginPage.pageobject";
+import { InventoryPage } from "../../../pageobjects/InventoryPage.pageobject";
 /**
  * @author: srinivasaimandi
  */

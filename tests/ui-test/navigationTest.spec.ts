@@ -1,8 +1,8 @@
 import { test, expect, Page } from "@playwright/test";
-import { LoginPage } from "../pageobjects/LoginPage.pageobject";
-import { InventoryPage } from "../pageobjects/InventoryPage.pageobject";
-import { InventoryItemPage } from "../pageobjects/InventoryItemPage.pageobject";
-import * as Constants from "../pageobjects/Constants";
+import { LoginPage } from "../../pageobjects/LoginPage.pageobject";
+import { InventoryPage } from "../../pageobjects/InventoryPage.pageobject";
+import { InventoryItemPage } from "../../pageobjects/InventoryItemPage.pageobject";
+import * as Constants from "../../pageobjects/Constants";
 
 /**
  * @author: srinivasaimandi
