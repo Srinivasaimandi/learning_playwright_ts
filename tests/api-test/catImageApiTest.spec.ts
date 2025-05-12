@@ -2,14 +2,14 @@ import { faker } from "@faker-js/faker";
 import { test, request, expect } from "@playwright/test";
 import path from "path";
 import * as fs from "fs";
+import * as Constants from "../../pageobjects/Constants";
 
 /**
  * @author: srinivasaimandi
  */
 
-const ENDPOINT = "https://api.thecatapi.com/";
-const API_KEY =
-  "live_RZPyVEv0nGUdmKYxu3WAOzz9bnymqeGukgS8hUqTx4ArYH6tdugzOgdoGGbBPdR8";
+const ENDPOINT = Constants.api_automation.cat_api.base_url;
+const API_KEY = Constants.api_automation.cat_api.api_key;
 const OPTIONS = {
   baseURL: ENDPOINT,
   extraHTTPHeaders: {
@@ -41,7 +41,7 @@ test.describe("cat api dependent tests", async function () {
   /**
    * disposing the cat api context
    */
-  test.afterAll(async ({}) => {
+  test.afterAll(async ({ }) => {
     // dispose all responses
     await catApiContext.dispose();
   });

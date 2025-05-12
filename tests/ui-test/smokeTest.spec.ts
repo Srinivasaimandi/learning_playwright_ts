@@ -40,8 +40,8 @@ test(
   },
   async function () {
     // req. constants
-    let username = Constants.USERS["standard user"];
-    let password = Constants.PASSWORD;
+    let username = Constants.web_ui_automation.sauce_labs.users["standard user"];
+    let password = Constants.web_ui_automation.sauce_labs.password;
 
     await loginPage.load();
     // getByPlaceholder, getByRole are inclusive of this function

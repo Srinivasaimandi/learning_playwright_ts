@@ -26,7 +26,7 @@ export class LoginPage extends BasePage {
    */
   async load(): Promise<void> {
     await this.page.goto("/");
-    await expect(this.page).toHaveTitle(Constants.TITLE.loginPage);
+    await expect(this.page).toHaveTitle(Constants.web_ui_automation.sauce_labs.title);
   }
 
   /**

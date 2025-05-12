@@ -24,10 +24,10 @@ export class InventoryPage extends BasePage {
    */
   async validateHeading(username: string): Promise<void> {
     if (username === "locked_out_user") {
-      await expect(this.page).toHaveTitle(Constants.TITLE.loginPage);
+      await expect(this.page).toHaveTitle(Constants.web_ui_automation.sauce_labs.title);
     } else {
       const heading = await this.heading.textContent();
-      await expect(heading).toEqual(Constants.HEADING.products);
+      await expect(heading).toEqual(Constants.web_ui_automation.sauce_labs.heading.products);
     }
   }
   /**

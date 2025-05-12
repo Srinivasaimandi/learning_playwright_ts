@@ -27,7 +27,7 @@ test.beforeAll(async function ({ browser }) {
 
   // logging into the application
   await loginPage.load();
-  await loginPage.login(Constants.USERS["standard user"], Constants.PASSWORD);
+  await loginPage.login(Constants.web_ui_automation.sauce_labs.users["standard user"], Constants.web_ui_automation.sauce_labs.password);
 });
 
 test.afterAll(async function () {

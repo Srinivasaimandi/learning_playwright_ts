@@ -42,7 +42,7 @@ test(
     },
   },
   async function ({ page }) {
-    await expect(page).toHaveTitle(Constants.TITLE.loginPage);
+    await expect(page).toHaveTitle(Constants.web_ui_automation.sauce_labs.title);
   }
 );
 
@@ -76,9 +76,9 @@ let invalidScenarios = {
   ],
 };
 
-test.describe("negative scenarios", async function(){
-  test.skip(({browserName}) => 
-   browserName === "chromium"
+test.describe("negative scenarios", async function () {
+  test.skip(({ browserName }) =>
+    browserName === "chromium"
   );
   Array.from(Object.keys(invalidScenarios)).forEach((scenario) => {
     test(
@@ -96,14 +96,14 @@ test.describe("negative scenarios", async function(){
       }
     );
   });
-  
+
   // parameterized test
-  Array.from(Object.values(Constants.USERS)).forEach((username) => {
+  Array.from(Object.values(Constants.web_ui_automation.sauce_labs.users)).forEach((username) => {
     test(
       `login test with username: '${username}'`,
       { tag: "@login @positive_case @reg" },
       async function () {
-        await loginPage.login(username, Constants.PASSWORD);
+        await loginPage.login(username, Constants.web_ui_automation.sauce_labs.password);
         await inventoryPage.validateHeading(username);
       }
     );
@@ -117,8 +117,8 @@ test.skip("locator_usage", async function ({ page }) {
   // using locator and xpath
   await page
     .locator("xpath:.//input[@id='user-name']")
-    .fill(Constants.USERS["standard user"]);
-  await page.locator("xpath:.//input[@id='password']").fill(Constants.PASSWORD);
+    .fill(Constants.web_ui_automation.sauce_labs.users["standard user"]);
+  await page.locator("xpath:.//input[@id='password']").fill(Constants.web_ui_automation.sauce_labs.password);
   await page.waitForTimeout(500);
 });
 
