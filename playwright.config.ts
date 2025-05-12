@@ -72,8 +72,14 @@ export default defineConfig({
     // },
 
     {
-      name: "firefox",
+      name: "sauce_demo_setup",
+      testMatch: /sauce_demo_global.setup.ts/,
+    },
+
+    {
+      name: "sauce_demo",
       use: { ...devices["Desktop Firefox"] },
+      dependencies: ['sauce_demo_setup'],
       testIgnore: [
         "/tests/ui-test/tutorials/*.spec.ts",
         "/tests/ui-test/tests-examples/*.spec.ts",

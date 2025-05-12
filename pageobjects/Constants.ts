@@ -1,6 +1,4 @@
-
 export const TIMEOUT: number = 5000;
-
 export const web_ui_automation = {
   sauce_labs: {
     base_url: "https://www.saucedemo.com",
