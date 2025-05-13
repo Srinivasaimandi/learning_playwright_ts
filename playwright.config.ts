@@ -21,7 +21,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
-  timeout: 30*1000,
+  timeout: 30 * 1000,
   expect: {
     timeout: 5000,
   },
@@ -43,7 +43,6 @@ export default defineConfig({
        other urls which can be to be automated
         - https://todolist.james.am/#/
     */
-    baseURL: "https://www.saucedemo.com",
     colorScheme: "dark",
     locale: "en-IN",
     timezoneId: "Asia/Calcutta",
@@ -57,72 +56,49 @@ export default defineConfig({
   projects: [
     {
       name: "tutorial",
-      testDir: "./tests/tutorials/",
-      use: { ...devices["firefox"] }
+      testDir: "./tests/ui-test/tutorials/",
+      use: { ...devices["firefox"] },
     },
-  
-    // {
-    //   name: "chromium",
-    //   use: { ...devices["Desktop Chrome"] },
-    //   testIgnore: [
-    //     "/tests/tutorials/*.spec.ts",
-    //     "/tests/tests-examples/*.spec.ts",
-    //     "./tests/readinfFilesTest.spec.ts",
-    //   ],
-    // },
 
+    /**
+     * global setup for sauce demo
+     */
     {
       name: "sauce_demo_setup",
       testMatch: /sauce_demo_global.setup.ts/,
+      use: {
+        baseURL: "https://www.saucedemo.com",
+      },
     },
-
     {
       name: "sauce_demo",
-      use: { ...devices["Desktop Firefox"] },
-      dependencies: ['sauce_demo_setup'],
+      testDir: "./tests/ui-test/",
+      use: {
+        ...devices["Desktop Firefox"],
+        baseURL: "https://www.saucedemo.com",
+      },
+      dependencies: ["sauce_demo_setup"],
       testIgnore: [
         "/tests/ui-test/tutorials/*.spec.ts",
         "/tests/ui-test/tests-examples/*.spec.ts",
         "./tests/ui-test/readinfFilesTest.spec.ts",
       ],
     },
-
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] },
-    //   testIgnore: [
-    //     "/tests/tutorials/*.spec.ts",
-    //     "/tests/tests-examples/*.spec.ts",
-    //     "./tests/readinfFilesTest.spec.ts",
-    //   ],
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: "api_demo",
+      testDir: "./tests/api-test/",
+      use: {
+        ...devices["Desktop Firefox"],
+        baseURL: "https://api.thecatapi.com/v1",
+      },
+    },
   ],
 
   /* Run your local dev server before starting the tests */
   // webServer: {
-    // command: 'docker container start the-internet',
-    // url: 'http://localhost:7070',
-    // timeout: 120 * 1000,
-    // reuseExistingServer: !process.env.CI,
+  // command: 'docker container start the-internet',
+  // url: 'http://localhost:7070',
+  // timeout: 120 * 1000,
+  // reuseExistingServer: !process.env.CI,
   // },
 });

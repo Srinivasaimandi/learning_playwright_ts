@@ -12,6 +12,7 @@
     "@types/node": "^22.14.1"
   },
   "dependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@faker-js/faker": "^9.7.0",
     "@types/pixelmatch": "^5.2.6",
     "csvtojson": "^2.0.10",
