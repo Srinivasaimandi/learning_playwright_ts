@@ -113,7 +113,7 @@ test("file upload test", { tag: "@actions" }, async function ({ page }) {
   await expect(await page.locator("#uploaded-files")).toContainText(fileName);
 });
 
-test.skip("file download test", { tag: "@actions" }, async function ({ page }) {
+test("file download test", { tag: "@actions" }, async function ({ page }) {
   await actionsPage.navigateToScreen(MenuOptions.file_download);
   await page
     .locator(".example > a")
@@ -139,7 +139,7 @@ test.skip("floating menu test", { tag: "@actions" }, async function ({ page }) {
   });
 });
 
-test.skip(
+test(
   "retrieve password test",
   { tag: "@actions" },
   async function ({ page }) {
@@ -166,6 +166,6 @@ test("multiple windows", { tag: "@actions" }, async function ({ page }) {
     page.locator("div.example > a").click(),
   ]);
   await newPage.waitForTimeout(2000);
-  await expect(newPage).toHaveURL(actionsPage.baseUrl+'/windows/new');
+  await expect(newPage).toHaveURL(actionsPage.baseUrl+'windows/new');
   await newPage.close();
 });

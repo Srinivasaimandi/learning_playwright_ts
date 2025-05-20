@@ -96,9 +96,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   // webServer: {
-  // command: 'docker container start the-internet',
-  // url: 'http://localhost:7070',
-  // timeout: 120 * 1000,
+  //   command: 'docker start the-internet',
+  //   url: 'http://localhost:7070',
+  //   timeout: 120 * 1000,
   // reuseExistingServer: !process.env.CI,
   // },
 });

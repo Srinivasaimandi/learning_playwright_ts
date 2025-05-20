@@ -16,6 +16,7 @@
     "@faker-js/faker": "^9.7.0",
     "@types/pixelmatch": "^5.2.6",
     "csvtojson": "^2.0.10",
+    "dotenv": "^16.5.0",
     "exceljs": "^4.4.0",
     "pixelmatch": "^7.1.0",
     "ts-node": "^10.9.2",
